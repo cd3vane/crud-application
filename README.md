@@ -2,7 +2,7 @@
 
 Creating an api using springboot running locally at `http://localhost:8080/api/employees` 
 
-### Current Routes
+## Current Routes
 
 - `GET /` - Get all employees
 - `GET /{id}` - Get single employee by ID
