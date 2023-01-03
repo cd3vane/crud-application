@@ -13,6 +13,7 @@ Creating an api using springboot running locally at `http://localhost:8080/api/e
 ### Install dependencies
 
 ```
+cd frontend
 npm install
 ```
 
@@ -22,14 +23,9 @@ npm install
 npm start
 ```
 
-### Run the JSON server (http://localhost:5000)
+### Run the JSON server (http://localhost:8080)
 
 ```
-npm run server
-```
-
-### To build for production
-
-```
-npm run build
+cd backend
+mnv spring-boot:run
 ```
