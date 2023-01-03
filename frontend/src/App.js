@@ -7,8 +7,8 @@ const App = () => {
   return (
     <div className="container-fluid">
       <nav>
-        <div className='nav-wrapper blue center-align'>
-          <a href='/'>Emplyee Portal</a>
+        <div className='nav-wrapper teal darken-4 center-align'>
+          <a href='/' className="brand-logo center">Employee Portal</a>
         </div>
       </nav>
       <div className='row'>

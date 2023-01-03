@@ -1,6 +1,7 @@
 package com.cd3vane.quickstart;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 
@@ -9,7 +10,7 @@ import lombok.Data;
 @Data
 @Entity
 public class Employee {
-    private @Id @GeneratedValue Long id;
+    private @Id @GeneratedValue(strategy = GenerationType.AUTO) Long id;
     private String firstName;
     private String lastName;
     private String emailAddress;

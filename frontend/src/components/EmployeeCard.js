@@ -5,15 +5,18 @@ const EmployeeCard = ({ item }) => {
     const { firstName, lastName, emailAddress, role } = item;
     return (
     <div className="row">
-        <div className="col s12 m6">
-        <div className="card blue-grey darken-1">
+        <div className="col s6 offset-s3">
+        <div className="card blue-grey darken-3">
             <div className="card-content white-text">
             <span className="card-title">{firstName} {lastName}</span>
             </div>
             <div className="card-action">
-            <p>{emailAddress}</p>
-            <p>{role}</p>
+            <p className="white-text">Email: {emailAddress}</p>
+            <p className="white-text">Role: {role}</p>
             </div>
+            <div class="card-action">
+          <a href={firstName}>View Employee</a>
+        </div>
         </div>
         </div>
     </div>

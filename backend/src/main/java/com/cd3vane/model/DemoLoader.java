@@ -16,7 +16,7 @@ public class DemoLoader implements CommandLineRunner {
     public void run(String... args) throws Exception {
         Employee charles = new Employee("Charles", 
         "DeVane", "test@gmail.com", "Java Developer");
-        this.employeeRepo.save(charles);
+        this.employeeRepo.saveAndFlush(charles);
     }
     
 }
