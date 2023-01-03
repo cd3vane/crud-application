@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import Contact from './Contact';
+import ContactCard from './ContactCard';
 
 const Contacts = () => {
     const [contacts, setContacts] = useState([]);
@@ -11,7 +11,6 @@ const Contacts = () => {
         fetch('/api/contacts')
         .then(response => response.json())
         .then(data => {
-            console.log(data._embedded.contacts);
             setContacts(data._embedded.contacts);
             setLoading(false);
         })
@@ -25,7 +24,7 @@ const Contacts = () => {
             <h1>Contacts</h1>
             <div className="row">
                 {contacts.map(contact => 
-                    <Contact key={contact.firstName} item={contact} />
+                    <ContactCard key={contact.firstName} item={contact} />
                 )}
             </div>
         </div>
