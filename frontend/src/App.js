@@ -1,6 +1,6 @@
 import React from 'react';
-import Contacts from './components/Contacts';
-import AddContact from './components/AddContact';
+import Employees from './components/Employees';
+import AddEmployee from './components/AddEmployee';
 import './App.css';
 
 const App = () => {
@@ -8,14 +8,14 @@ const App = () => {
     <div className="container-fluid">
       <nav>
         <div className='nav-wrapper blue center-align'>
-          <a href='/' className='brand-logo'>Contacts</a>
+          <a href='/'>Emplyee Portal</a>
         </div>
       </nav>
       <div className='row'>
-        <AddContact />
+        <AddEmployee />
       </div>
       <div className='row'>
-        <Contacts />
+        <Employees />
       </div>
     </div>
   );

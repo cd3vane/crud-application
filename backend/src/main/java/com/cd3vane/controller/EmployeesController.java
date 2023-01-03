@@ -8,34 +8,41 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 
+
 @RestController
-@RequestMapping("/contacts")
+@RequestMapping("/employees")
 @CrossOrigin(origins = "*", allowedHeaders = "*")
-public class ContactsController {
+public class EmployeesController {
     
     @Autowired
-    private ContactRepository contactsRepository;
+    private EmployeeRepository repository;
 
-    public ContactsController(ContactRepository contactRepository) {
-        this.contactsRepository = contactRepository;
+    public EmployeesController(EmployeeRepository employeeRepository) {
+        repository = employeeRepository;
     }
 
     
     @GetMapping(value = "/")
-    Collection<Contact> getContacts(){
-        return contactsRepository.findAll();
+    Collection<Employee> getEmployees(){
+        return repository.findAll();
+    }
+
+    @GetMapping(value = "/{id}")
+    Employee getEmployeeById(@PathVariable Long id){
+        return repository.findById(id)
+            .orElseThrow(() -> new EmployeeNotFoundException(id));
     }
 
     
     @PostMapping(value = "/")
-    ResponseEntity<Contact> addContact(@Validated @RequestBody Contact contact) throws URISyntaxException{
-        Contact result = contactsRepository.save(contact);
-        return ResponseEntity.ok().body(result);
+    Employee addEmployee(@Validated @RequestBody Employee employee) throws URISyntaxException{
+        return repository.save(employee);
     }
 }

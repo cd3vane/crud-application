@@ -1,8 +1,8 @@
 import React from 'react';
 
 
-const ContactCard = ({ item }) => {
-    const { firstName, lastName, emailAddress } = item;
+const EmployeeCard = ({ item }) => {
+    const { firstName, lastName, emailAddress, role } = item;
     return (
     <div className="row">
         <div className="col s12 m6">
@@ -12,6 +12,7 @@ const ContactCard = ({ item }) => {
             </div>
             <div className="card-action">
             <p>{emailAddress}</p>
+            <p>{role}</p>
             </div>
         </div>
         </div>
@@ -19,4 +20,4 @@ const ContactCard = ({ item }) => {
     )
 }
 
-export default ContactCard;
+export default EmployeeCard;

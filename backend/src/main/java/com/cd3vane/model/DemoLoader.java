@@ -5,18 +5,18 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class DemoLoader implements CommandLineRunner {
-    private final ContactRepository contactRepo;
+    private final EmployeeRepository employeeRepo;
 
    
-    public DemoLoader(ContactRepository contactRepo){
-        this.contactRepo = contactRepo;
+    public DemoLoader(EmployeeRepository employeeRepo){
+        this.employeeRepo = employeeRepo;
     }
 
     @Override
     public void run(String... args) throws Exception {
-        Contact charles = new Contact("Charles", 
-        "DeVane", "test@gmail.com");
-        this.contactRepo.save(charles);
+        Employee charles = new Employee("Charles", 
+        "DeVane", "test@gmail.com", "Java Developer");
+        this.employeeRepo.save(charles);
     }
     
 }

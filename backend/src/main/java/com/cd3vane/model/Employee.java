@@ -8,18 +8,20 @@ import lombok.Data;
 
 @Data
 @Entity
-public class Contact {
+public class Employee {
     private @Id @GeneratedValue Long id;
     private String firstName;
     private String lastName;
     private String emailAddress;
+    private String role;
 
-    private Contact() {}
+    private Employee() {}
 
-    public Contact(String firstName, String lastName, String emailAddress){
+    public Employee(String firstName, String lastName, String emailAddress, String role){
         this.firstName = firstName;
         this.lastName = lastName;
         this.emailAddress = emailAddress;
+        this.role = role;
     }
 
 }

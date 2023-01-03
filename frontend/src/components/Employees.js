@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from 'react';
-import ContactCard from './ContactCard';
+import EmployeeCard from './EmployeeCard';
 
-const Contacts = () => {
-    const [contacts, setContacts] = useState([]);
+const Employees = () => {
+    const [employees, setEmployees] = useState([]);
     const [loading, setLoading] = useState(false);
 
     useEffect(() => {
         setLoading(true);
 
-        fetch('/api/contacts')
+        fetch('/api/employees')
         .then(response => response.json())
         .then(data => {
-            setContacts(data._embedded.contacts);
+            setEmployees(data._embedded.employees);
             setLoading(false);
         })
     }, []);
@@ -21,14 +21,13 @@ const Contacts = () => {
      }
     return (
         <div>
-            <h1>Contacts</h1>
             <div className="row">
-                {contacts.map(contact => 
-                    <ContactCard key={contact.firstName} item={contact} />
+                {employees.map(contact => 
+                    <EmployeeCard key={contact.firstName} item={contact} />
                 )}
             </div>
         </div>
     );
 }
 
-export default Contacts;
+export default Employees;

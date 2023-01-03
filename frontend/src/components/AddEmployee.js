@@ -1,18 +1,24 @@
 import React, { useState }  from 'react';
 
-const ContactCard = () => {
-    const [contact, setContact] = useState({ firstName: "", lastName: "", emailAddress: "" })
+const EmployeeCard = () => {
+    const [employee, setEmployee] = useState({ 
+      firstName: "", 
+      lastName: "",
+      emailAddress: "",
+      role: "",
+     })
     
-    const saveContact = () => {
-        fetch('api/contacts', {
+    const saveEmployee = () => {
+        fetch('api/employees', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
           },
           body: JSON.stringify({
-            firstName: contact.firstName,
-            lastName: contact.lastName,
-            emailAddress: contact.emailAddress,
+            firstName: employee.firstName,
+            lastName: employee.lastName,
+            emailAddress: employee.emailAddress,
+            role: employee.role,
           }),
         })
           .then((res) => res.json())
@@ -20,11 +26,11 @@ const ContactCard = () => {
       }
 
     const handleSubmit = (event) => {
-        saveContact()
+        saveEmployee()
       }
     
       const handleChange = (event) => {
-        setContact({ ...contact, [event.target.name]: event.target.value });
+        setEmployee({ ...employee, [event.target.name]: event.target.value });
       }
 
     return (
@@ -37,7 +43,7 @@ const ContactCard = () => {
                     name="firstName"
                     type="text"
                     onChange={handleChange}
-                    value={contact.firstName}
+                    value={employee.firstName}
                 />
                 <label htmlFor="firstName">First Name</label>
             </div>
@@ -47,21 +53,31 @@ const ContactCard = () => {
                         name="lastName"
                         type="text"
                         onChange={handleChange}
-                        value={contact.lastName}
+                        value={employee.lastName}
                     />
                 <label htmlFor="lastName">Last Name</label>
             </div>
         </div>
         <div className="row">
-            <div className="input-field col s12">
+            <div className="input-field col s6">
                 <input
                         id="emailAddress"
                         name="emailAddress"
                         type="email"
                         onChange={handleChange}
-                        value={contact.emailAddress}
+                        value={employee.emailAddress}
                     />
                 <label htmlFor="emailAddress">Email</label>
+            </div>
+            <div className="input-field col s6">
+                <input
+                        id="role"
+                        name="role"
+                        type="text"
+                        onChange={handleChange}
+                        value={employee.role}
+                    />
+                <label htmlFor="role">Role</label>
             </div>
         </div>
         <div className="row">
@@ -74,4 +90,4 @@ const ContactCard = () => {
     )
 }
 
-export default ContactCard;
+export default EmployeeCard;
