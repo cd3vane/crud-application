@@ -25,5 +25,37 @@ public class Employee {
         this.role = role;
     }
 
+    public void setFirstName(String first){
+        firstName = first;
+    }
+
+    public void setLastName(String last){
+        lastName = last;
+    }
+
+    public void setEmail(String email){
+        emailAddress = email;
+    }
+
+    public void setRole(String role){
+        this.role = role;
+    }
+
+    public String getFirstName(){
+        return firstName;
+    }
+
+    public String getLastName(){
+        return lastName;
+    }
+
+    public String getEmail(){
+       return emailAddress;
+    }
+
+    public String getRole(){
+        return role;
+    }
+
 }
 
