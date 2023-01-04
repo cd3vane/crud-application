@@ -1,22 +1,24 @@
 import React from 'react';
-import Employees from './components/Employees';
-import AddEmployee from './components/AddEmployee';
-import './App.css';
+import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
+import Home from './components/Home';
+import SingleEmployee from './components/SingleEmployee';
 
 const App = () => {
   return (
     <div className="container-fluid">
+      <Router>
       <nav>
         <div className='nav-wrapper teal darken-4 center-align'>
           <a href='/' className="brand-logo center">Employee Portal</a>
         </div>
       </nav>
-      <div className='row'>
-        <AddEmployee />
-      </div>
-      <div className='row'>
-        <Employees />
-      </div>
+        <div className="container">
+        <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/employee/:id" element={<SingleEmployee />} />
+        </Routes>
+        </div>
+      </Router>
     </div>
   );
 }

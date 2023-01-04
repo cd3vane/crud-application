@@ -1,13 +1,11 @@
 package com.cd3vane.quickstart;
 
 import jakarta.persistence.Entity;
+import java.util.Objects;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 
-import lombok.Data;
-
-@Data
 @Entity
 public class Employee {
     private @Id @GeneratedValue(strategy = GenerationType.AUTO) Long id;
@@ -25,6 +23,14 @@ public class Employee {
         this.role = role;
     }
 
+    public Long getId() {
+        return this.id;
+    }
+    
+    public void setId(Long id) {
+        this.id = id;
+    }
+    
     public void setFirstName(String first){
         firstName = first;
     }
@@ -57,5 +63,28 @@ public class Employee {
         return role;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o)
+            return true;
+        if (!(o instanceof Employee))
+            return false;
+        Employee employee = (Employee) o;
+
+        return Objects.equals(this.id, employee.id) && Objects.equals(this.firstName, employee.firstName)
+            && Objects.equals(this.emailAddress, employee.emailAddress) && Objects.equals(this.role, employee.role);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(this.id, this.firstName, this.lastName, this.emailAddress, this.role);
+    }
+
+    @Override
+    public String toString() {
+        return "Employee{" + "id=" + this.id + ", name='" + this.firstName + " " + this.lastName + 
+            '\'' + ", role='" + this.role + '\'' + '}';
+    }
 }
+
 

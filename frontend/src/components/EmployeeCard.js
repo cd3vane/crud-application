@@ -1,8 +1,10 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 
 
 const EmployeeCard = ({ item }) => {
-    const { firstName, lastName, emailAddress, role } = item;
+    const { firstName, lastName, email, role } = item;
+    const id = item._links.self.href.slice(-1);
     return (
     <div className="row">
         <div className="col s6 offset-s3">
@@ -11,11 +13,11 @@ const EmployeeCard = ({ item }) => {
             <span className="card-title">{firstName} {lastName}</span>
             </div>
             <div className="card-action">
-            <p className="white-text">Email: {emailAddress}</p>
+            <p className="white-text">Email: {email}</p>
             <p className="white-text">Role: {role}</p>
             </div>
             <div class="card-action">
-          <a href={firstName}>View Employee</a>
+            <Link to={`employee/${id} `}>View Employee</Link>
         </div>
         </div>
         </div>

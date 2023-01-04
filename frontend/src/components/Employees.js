@@ -22,8 +22,8 @@ const Employees = () => {
     return (
         <div>
             <div className="row">
-                {employees.map(contact => 
-                    <EmployeeCard key={contact.firstName} item={contact} />
+                {employees.map(employee => 
+                    <EmployeeCard key={employee._links.self.href} item={employee} />
                 )}
             </div>
         </div>
