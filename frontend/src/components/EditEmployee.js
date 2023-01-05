@@ -1,6 +1,6 @@
 import React, { useState }  from 'react';
 
-const AddEmployee = () => {
+const EditEmployee = () => {
     const [employee, setEmployee] = useState({ 
       firstName: "", 
       lastName: "",
@@ -90,4 +90,4 @@ const AddEmployee = () => {
     )
 }
 
-export default AddEmployee;
+export default EditEmployee;
